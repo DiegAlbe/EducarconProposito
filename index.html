@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Educar con Propósito | Formación Docente 2026</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf8;
+      color: #1e1b1a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom colors & theme */
+    :root {
+      --deep-charcoal: #2c2a2b;
+      --terracotta: #c25d4a;
+      --clay-light: #eeded7;
+      --warm-sand: #f8f2ea;
+      --gold-star: #e9bc7b;
+      --soft-blue: #cbdce8;
+      --shadow-sm: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+      --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* navigation */
+    .navbar {
+      padding: 1.5rem 2rem;
+      background: rgba(254,252,248,0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--deep-charcoal);
+      transition: 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.2rem;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    /* hero section */
+    .hero {
+      padding: 5rem 0 6rem;
+      text-align: center;
+      background: radial-gradient(circle at 10% 30%, rgba(235,215,200,0.3) 0%, rgba(254,252,248,0) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-size: 4.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2c2a2b, #aa6e5c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .hero-tag {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: #a56552;
+      margin: 1rem 0 1.2rem;
+      font-weight: 500;
+    }
+    .hero-desc {
+      max-width: 700px;
+      margin: 1rem auto 0;
+      font-size: 1.1rem;
+      color: #3e3a38;
+    }
+    .star-decoration {
+      font-size: 1.8rem;
+      opacity: 0.5;
+      letter-spacing: 8px;
+      margin-top: 1.8rem;
+    }
+
+    /* cards / sections general */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .section-title {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    .section-sub {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem auto;
+      color: #5c5552;
+    }
+
+    /* 3 keys grid */
+    .keys-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    .key-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      border: 1px solid #f0e4dd;
+    }
+    .key-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold-star);
+    }
+    .key-number {
+      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: var(--terracotta);
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    .key-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+    .key-quote {
+      font-style: italic;
+      border-left: 3px solid var(--gold-star);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      color: #4d423e;
+    }
+    .action-list {
+      margin-top: 1.2rem;
+      list-style: none;
+    }
+    .action-list li {
+      margin-bottom: 0.7rem;
+      display: flex;
+      gap: 0.7rem;
+      align-items: baseline;
+      font-size: 0.9rem;
+    }
+    .action-list i {
+      color: var(--terracotta);
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+      width: 1.2rem;
+    }
+    .ref-badge {
+      background: var(--warm-sand);
+      border-radius: 2rem;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin-top: 1rem;
+      color: #8f6556;
+    }
+
+    /* poem & art section */
+    .art-section {
+      background: #f9f2ec;
+    }
+    .poem-box {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      border-radius: 3rem;
+      padding: 2rem 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #f3e1d8;
+    }
+    .poem-line {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 0.5rem 0;
+    }
+    .ventana {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: #8b6b5d;
+      letter-spacing: 2px;
+    }
+    .guernica-quote {
+      background: #2c2a2b;
+      color: #f0e2db;
+      padding: 1.8rem;
+      border-radius: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    /* conclusion / final message */
+    .purpose-block {
+      background: linear-gradient(110deg, #fff6ef 0%, #fff 100%);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .signature {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+
+    footer {
+      background: #f3ede8;
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 700px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    .btn-glow {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    a {
+      text-decoration: none;
+    }
+    .star-small {
+      color: var(--gold-star);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a href="#claves">Claves</a></li>
+    <li><a href="#practica">Cuestionar</a></li>
+    <li><a href="#creatividad">Comunicar</a></li>
+    <li><a href="#matices">Discutir</a></li>
+    <li><a href="#arte">Arte & Poesía</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="container">
+      <div class="star-decoration">✦ ✧ ✦</div>
+      <h1>Educar con <br> Propósito</h1>
+      <div class="hero-tag">Arte · Crítica · Colaboración</div>
+      <p class="hero-desc">Creatividad, pensamiento crítico y responsabilidad docente.<br> 
+      Una invitación a co-construir saberes que cuestionen, comuniquen y transformen.</p>
+      <div class="star-decoration">✧ ✦ ✧</div>
+      <p style="margin-top:1.2rem; font-size:0.9rem;"><i class="fas fa-chalkboard-teacher"></i> Diego Albeira · Programa de Formación Docente 2026</p>
+      <p style="font-size:0.85rem; margin-top:0.4rem;">Docente: Lic. María de los Ángeles Centurión</p>
+    </div>
+  </div>
+
+  <!-- Tres Claves para una Docencia Transformadora -->
+  <section id="claves">
+    <div class="container">
+      <h2 class="section-title">Tres claves para una docencia transformadora</h2>
+      <p class="section-sub">El saber conlleva una gran responsabilidad. Reflexión, creatividad y diálogo con matices.</p>
+      <div class="keys-grid">
+        <!-- Clave 1: Cuestionar -->
+        <div class="key-card" id="practica">
+          <div class="key-number">01</div>
+          <h3>Cuestiona tu Práctica</h3>
+          <p><strong>Reflexioná sobre tus propias creencias</strong> y enseñá a tus estudiantes a cuestionar, verificar fuentes e identificar sesgos.</p>
+          <div class="key-quote">“La práctica reflexiva nace ante una perplejidad, una confusión.” — Anijovich & Capelletti (2014)</div>
+          <ul class="action-list">
+            <li><i class="fas fa-lightbulb"></i> <span><strong>Cuestionamiento colectivo:</strong> 5 minutos finales: ¿Qué supuesto limitó el aprendizaje?</span></li>
+            <li><i class="fas fa-search"></i> <span><strong>Enseñá a cuestionar:</strong> verificar fuentes, identificar sesgos, formular preguntas críticas.</span></li>
+            <li><i class="fas fa-users"></i> <span><strong>Colaboración liberadora:</strong> trabajo grupal donde cada contexto aporta, docente facilitador.</span></li>
+          </ul>
+          <div class="ref-badge"><i class="fas fa-book-open"></i> Basado en Monetti (2024) · Freire</div>
+        </div>
+        <!-- Clave 2: Comunicar Creatividad -->
+        <div class="key-card" id="creatividad">
+          <div class="key-number">02</div>
+          <h3>Comunica con Creatividad</h3>
+          <p>Partí de los intereses reales de los estudiantes. Usá formatos diversos —video, fanzine, podcast— y permití que la expresión tome el camino más eficiente.</p>
+          <div class="key-quote">“La planificación es una representación abierta a la inmediatez e imprevisibilidad” — Monetti (2024)</div>
+          <ul class="action-list">
+            <li><i class="fas fa-head-side-vr"></i> <span><strong>Diagnóstico de intereses:</strong> indagá cómo consumen info (TikTok, podcasts, etc.)</span></li>
+            <li><i class="fas fa-chalkboard"></i> <span><strong>Comunicación estratégica:</strong> insumos breves, narrativa, alternancia de canales.</span></li>
+            <li><i class="fas fa-music"></i> <span><strong>Creatividad sin límites:</strong> permití elegir formato: canción, fanzine, video de 60″.</span></li>
+          </ul>
+          <div class="ref-badge"><i class="fas fa-palette"></i> Steiman (s.f.) · Construcción metodológica situada</div>
+        </div>
+        <!-- Clave 3: Discutí con Matices -->
+        <div class="key-card" id="matices">
+          <div class="key-number">03</div>
+          <h3>Discutí con Matices</h3>
+          <p>Fomentá debates que escapen a la lógica binaria de los algoritmos. La verdad se construye colectivamente, con argumentos, escucha y posibilidad de cambiar de opinión.</p>
+          <div class="key-quote">“La reflexión no es lineal; el intercambio y confrontación entre pares favorecen procesos reflexivos.” — Anijovich & Capelletti</div>
+          <ul class="action-list">
+            <li><i class="fas fa-comments"></i> <span><strong>Debates estructurados:</strong> usar expresiones como “sí, pero…” o “desde otra perspectiva…”</span></li>
+            <li><i class="fas fa-brain"></i> <span><strong>Meta-reflexión algorítmica:</strong> comparar polarización digital vs argumentación en el aula.</span></li>
+            <li><i class="fas fa-hand-holding-heart"></i> <span><strong>Clima de confianza:</strong> escucha sin interrupción, evaluación revisable (Piovani, 2015).</span></li>
+          </ul>
+          <div class="ref-badge"><i class="fas fa-scale-balanced"></i> Piovani · Evaluación multidimensional</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ampliación desde la Guía de Buenas Prácticas (tres consejos en profundidad) -->
+  <section style="background: #fefaf7;">
+    <div class="container">
+      <h2 class="section-title" style="font-size: 2rem;">Guía de Buenas Prácticas Docentes</h2>
+      <p class="section-sub">Tres movimientos esenciales para enseñar con responsabilidad, crítica colaborativa y creatividad.<br> 
+      <em>“No hay recetas, sino preguntas vivas.”</em></p>
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <div style="background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: var(--shadow-sm);">
+          <h3 style="display: flex; gap: 0.8rem; align-items: center;"><i class="fas fa-question-circle" style="color:#c25d4a"></i> Consejo N.°1: Cuestiona tu propia práctica y enseña a cuestionar, con responsabilidad colaborativa</h3>
+          <p><strong>Desafío:</strong> Muchas veces planificamos sin cuestionar nuestras creencias ni dinámicas de poder. Los estudiantes consumen información pasivamente.</p>
+          <p><strong>Fundamento:</strong> Anijovich & Capelletti (2014) retoman a Dewey: la reflexión nace de una perplejidad. Monetti (2024) añade que planificar es una práctica social situada. El conocimiento colectivo adquiere carácter liberador.</p>
+          <p><strong>Acción estrella:</strong> Incidentes críticos y observación entre pares para revisar concepciones. Espacios de micro-reflexión semanal.</p>
+        </div>
+        <div style="background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: var(--shadow-sm);">
+          <h3 style="display: flex; gap: 0.8rem;"><i class="fas fa-lightbulb" style="color:#e9bc7b"></i> Consejo N.°2: Apela a la comunicación creativa y estratégica</h3>
+          <p><strong>Desafío:</strong> El bombardeo de estímulos digitales compite con la clase tradicional. La planificación debe ser flexible y atractiva.</p>
+          <p><strong>Fundamento:</strong> Steiman (s.f.) recupera a Edelstein: el método es una construcción para cada situación didáctica. Piovani (2015) advierte sobre no sobrevalorar sólo métricas cuantitativas.</p>
+          <p><strong>Acción estrella:</strong> Permitir que los estudiantes elijan el formato de producción (fanzine, reel, podcast). Diseñar insumos con gancho narrativo y diagnosticar sus consumos culturales.</p>
+        </div>
+        <div style="background: white; border-radius: 1.5rem; padding: 1.5rem; box-shadow: var(--shadow-sm);">
+          <h3 style="display: flex; gap: 0.8rem;"><i class="fas fa-chart-line" style="color:#aa6e5c"></i> Consejo N.°3: Fomenta discusiones con matices y trabajo colaborativo, lejos de la lógica binaria</h3>
+          <p><strong>Desafío:</strong> La polarización de redes sociales invade el aula; todo es "bueno o malo".</p>
+          <p><strong>Fundamento:</strong> Anijovich & Capelletti: la reflexión necesita climas de confianza. Piovani habla de triangulación y evaluación intersubjetiva. Steiman: superar la lógica normativa.</p>
+          <p><strong>Acción estrella:</strong> Debates estructurados con cláusulas de matiz (“sí, pero”, “desde otra mirada”), y meta-reflexión sobre cómo piensan los algoritmos vs. pensamiento crítico.</p>
+        </div>
+      </div>
+      <div class="purpose-block" style="margin-top: 2.5rem;">
+        <i class="fas fa-handshake fa-2x" style="color:#c25d4a; margin-bottom: 0.5rem; display: inline-block;"></i>
+        <p style="font-size: 1.1rem;"><strong>El conocimiento lo construimos entre todos — eso le dará un carácter liberador.</strong></p>
+        <p>— Co-construir una educación que cuestione, comunique, cree y transforme.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- El Arte como herramienta educativa + poema -->
+  <section class="art-section" id="arte">
+    <div class="container">
+      <h2 class="section-title">El Arte como Herramienta</h2>
+      <p class="section-sub">La escuela como espacio de juego, misterio y creación. No hay respuestas únicas, sino asombro.</p>
+      <div class="poem-box">
+        <div class="poem-line"><strong>Maestro.</strong> ¿Qué doncella se casa con el viento?</div>
+        <div class="poem-line"><strong>Niño.</strong> La doncella de todos los deseos.</div>
+        <div class="poem-line"><strong>Maestro.</strong> ¿Qué le regala el viento?</div>
+        <div class="poem-line"><strong>Niño.</strong> Remolinos de oro y mapas superpuestos.</div>
+        <div class="poem-line"><strong>Maestro.</strong> Ella ¿le ofrece algo?</div>
+        <div class="poem-line"><strong>Niño.</strong> Su corazón abierto.</div>
+        <div class="poem-line"><strong>Maestro.</strong> Decid cómo se llama.</div>
+        <div class="poem-line"><strong>Niño.</strong> Su nombre es un secreto.</div>
+        <div class="ventana"><i class="fas fa-star-of-life"></i> (La ventana del colegio tiene una cortina de luceros.) <i class="fas fa-star"></i></div>
+      </div>
+      <div class="guernica-quote">
+        <i class="fas fa-palette" style="margin-right: 0.5rem;"></i> “Como Picasso con Guernica o Lorca con sus versos, debemos trascender en nuestros alumnos.”<br>
+        <span style="display: block; margin-top: 0.6rem; font-size: 0.9rem;">El propósito es co-construir una educación que cuestione, comunique, cree y transforme.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusión inspiradora + llamado -->
+  <section style="background: #ffffff;">
+    <div class="container">
+      <div class="purpose-block">
+        <h3 style="font-size: 1.8rem;">Trascender en el otro</h3>
+        <p style="margin: 1.2rem 0; font-size: 1.05rem;">Enseñar no es solo transmitir técnicas, sino asumir una responsabilidad ética y colaborativa. Como sostiene Steiman (s.f.), la didáctica debe estar comprometida con la práctica pedagógica cotidiana. Monetti (2024) nos recuerda que la planificación es una composición abierta, siempre rehacible. Y Piovani (2015) nos desafía a no naturalizar criterios de evaluación.</p>
+        <p><strong>¿Para qué enseñamos?</strong> Para dejar que la expresión tome el camino más eficiente, sin limitar, sorprendiendo y siendo sorprendidos. Una educación que cuestione, comunique, cree y transforme.</p>
+        <div class="star-decoration">✧ ✦ ✧</div>
+        <p class="signature">— Diego Albeira, Mayo 2026 —</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Referencias bibliográficas APA7 -->
+  <section id="referencias" style="background: #faf5f0; border-bottom: none;">
+    <div class="container">
+      <h2 class="section-title" style="font-size: 2rem;">Referencias</h2>
+      <div style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; font-size: 0.9rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+        <p>Anijovich, R. y Capelletti, G. (2014). <em>La práctica reflexiva en los docentes en servicio. Posibilidades y limitaciones</em>. [Documento de cátedra].</p>
+        <p>Dewey, J. (1989). <em>Cómo pensamos</em>. Paidós. (Trabajo original publicado en 1933).</p>
+        <p>Monetti, E. y Molina, M. E. (2024). La planificación didáctica y su enseñanza en la formación docente: entramado de sentidos, representaciones y prácticas. <em>Espacios en Blanco. Serie Indagaciones, 1</em>(34), 259-271.</p>
+        <p>Piovani, J. I. (2015). Reflexiones metodológicas sobre la evaluación académica. <em>Política Universitaria – IEC CONADU</em>, (agosto de 2015), 2-10.</p>
+        <p>Steiman, J. L. (s.f.). <em>Didáctica: saber didáctico y prácticas docentes</em>. Ministerio de Educación de la Nación / Universidad Nacional de San Martín.</p>
+        <p>Además: Freire, P. (pedagogía liberadora); Edelstein, G.; Zeichner, K.; Burbules, N. (referencias integradas en la fundamentación).</p>
+      </div>
+      <div style="text-align: center; margin-top: 2rem; border-top: 1px solid #e6d9d2; padding-top: 1.8rem;">
+        <p><i class="fas fa-chalkboard"></i> Programa de Formación Docente · 2026 · Trabajo integrador: “Educar con Propósito”<br> Guía de Buenas Prácticas y presentación creativa basada en Anijovich, Monetti, Steiman, Piovani.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p><i class="fas fa-feather-alt"></i> “La verdad se construye colectivamente, con argumentos, escucha y posibilidad de cambiar de opinión.”</p>
+    <p style="margin-top: 0.6rem;">Diego Albeira · Docente guía: Lic. María de los Ángeles Centurión · 2026</p>
+    <p style="margin-top: 0.5rem; opacity: 0.7;">✧ Educar con propósito: arte, crítica y colaboración para una docencia transformadora ✧</p>
+  </div>
+</footer>
+
+<!-- tiny scroll reveal animation -->
+<script>
+  (function() {
+    const sections = document.querySelectorAll('section, .key-card, .poem-box, .guernica-quote, .purpose-block');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+    
+    sections.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+    // force immediate reveal on visible elements after load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        sections.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      }, 100);
+    });
+  })();
+</script>
+</body>
+</html>
